@@ -11,14 +11,15 @@
 
 	function randomRGB() 
 		{
-			return `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`;
+			return `rgb(${random(255, 0)},${random(0, 255)},${random(0, 255)})`;
 		}
 
 	const bolas = [];
 
-	while (bolas.length < 40) {
-	const size = (5);
-	const bola = new Bola( 
+	while (bolas.length < 40) 
+		{
+			const size = (5);
+			const bola = new Bola( 
 			random(0 + size,width - size),
 			random(0 + size,height - size),
 			random(-10,10),
@@ -31,7 +32,7 @@
 
 	function loop() 
 		{
-			ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
+			ctx.fillStyle = 'rgba(15, 25, 30, 0.25)';
 			ctx.fillRect(0, 0,  width, height);
 
 		for (const bola of bolas) 

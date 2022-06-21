@@ -14,45 +14,37 @@ class Bola {
 	draw() {
 		ctx.beginPath();
 		ctx.fillStyle = this.color;
-		ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+		ctx.arc(this.x, this.y, this.size, 0, 90 * Math.PI);
 		ctx.fill();
 	}
 
 
 	update() 
 		{
-		if ((this.x + this.size) >= width) 
-			{
-				this.velX = -(this.velX);
-			}
-
-		if ((this.x - this.size) <= 0) 
-			{
-				this.velX = -(this.velX);
-			}
-
-		if ((this.y + this.size) >= height) 
-			{
-				this.velY = -(this.velY);
-			}
-
-		if ((this.y - this.size) <= 0) 
-			{
-				this.velY = -(this.velY);
-			}
-
-		this.x += this.velX;
-		this.y += this.velY;
-		}
-		collisionDetect(Bolas) {
-			for (var bola of Bolas) {
-				if (!(this === bola)) {
-					const dx = this.x - bola.x;
-					const dy = this.y - bola.y;
-					const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < this.size + bola.size) 
+			if ((this.x + this.size) >= width) 
 				{
+					this.velX = -(this.velX);
+				}
+
+			if ((this.x - this.size) <= 0) 
+				{
+					this.velX = -(this.velX);
+				}
+
+			this.x += this.velX;
+		}
+			collisionDetect(Bolas) 
+				{
+				for (var bola of Bolas) 
+					{
+						if (!(this === bola)) 
+						{
+							const dx = this.x - bola.x;
+							const dy = this.y - bola.y;
+							const distance = Math.sqrt(dx * dx + dy * dy);
+
+						if (distance < this.size + bola.size) 
+					{
 					bola= this.color = randomRGB();
 				}
 			}
